@@ -4,6 +4,12 @@ using LambdicSql.Specialized.SymbolConverters;
 
 namespace LambdicSql.Oracle
 {
+    //TODO delete
+    /// <summary>
+    /// TOP keyword.
+    /// </summary>
+    public abstract class TopElement { }
+
     /// <summary>
     /// SQL Symbol.
     /// It can only be used within lambda of the LambdicSql.
