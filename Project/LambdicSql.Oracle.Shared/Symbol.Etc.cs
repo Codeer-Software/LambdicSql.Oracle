@@ -53,14 +53,6 @@ namespace LambdicSql.Oracle
         public static OrderByElement Desc(object target) { throw new InvalitContextException(nameof(Desc)); }
 
         /// <summary>
-        /// TOP Keyword.
-        /// </summary>
-        /// <param name="count">Count.</param>
-        /// <returns>TOP.</returns>
-        [MethodFormatConverter(Format = "TOP [$0]")]
-        public static TopElement Top(long count) { throw new InvalitContextException(nameof(Top)); }
-
-        /// <summary>
         /// ALL Keyword
         /// </summary>
         /// <returns>ALL.</returns>
@@ -82,13 +74,6 @@ namespace LambdicSql.Oracle
         public static DateTime Current_Date() { throw new InvalitContextException(nameof(Current_Date)); }
 
         /// <summary>
-        /// CURRENT_TIME Keyword.
-        /// </summary>
-        /// <returns>Date of executing SQL.</returns>
-        [CurrentDateTimeConverter(Name = "TIME")]
-        public static TimeSpan Current_Time() { throw new InvalitContextException(nameof(DateTimeOffset)); }
-
-        /// <summary>
         /// CURRENT_TIMESTAMP Keyword.
         /// </summary>
         /// <returns>Date and time of executing SQL.</returns>
@@ -101,6 +86,7 @@ namespace LambdicSql.Oracle
         [MemberConverter]
         public static object Dual { get { throw new InvalitContextException(nameof(Dual)); } }
 
+        //TODO to property?
         /// <summary>
         /// ROWNUM BETWEEN keyword.
         /// </summary>

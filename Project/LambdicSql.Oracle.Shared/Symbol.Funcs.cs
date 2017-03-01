@@ -122,30 +122,6 @@ namespace LambdicSql.Oracle
         public static T1 Round<T1, T2>(T1 target, T2 digit) { throw new InvalitContextException(nameof(Round)); }
 
         /// <summary>
-        /// CONCAT function.
-        /// </summary>
-        /// <param name="targets">A string value to concatenate to the other values.</param>
-        /// <returns>concatenated result.</returns>
-        [FuncStyleConverter]
-        public static string Concat(params string[] targets) { throw new InvalitContextException(nameof(Concat)); }
-
-        /// <summary>
-        /// LENGTH function.
-        /// </summary>
-        /// <param name="target">target.</param>
-        /// <returns>String length.</returns>
-        [FuncStyleConverter]
-        public static int Length(object target) { throw new InvalitContextException(nameof(Length)); }
-
-        /// <summary>
-        /// LEN function.
-        /// </summary>
-        /// <param name="target">target.</param>
-        /// <returns>String length.</returns>
-        [FuncStyleConverter]
-        public static int Len(object target) { throw new InvalitContextException(nameof(Len)); }
-
-        /// <summary>
         /// LOWER function.
         /// </summary>
         /// <param name="target">target.</param>
@@ -170,53 +146,6 @@ namespace LambdicSql.Oracle
         /// <returns>Changed string.</returns>
         [FuncStyleConverter]
         public static string Replace(object target, object src, object dst) { throw new InvalitContextException(nameof(Replace)); }
-
-        /// <summary>
-        /// SUBSTRING function.
-        /// </summary>
-        /// <param name="target">target.</param>
-        /// <param name="startIndex">Specify the starting position of the character string to be acquired.</param>
-        /// <param name="length">Specify the length of the string to be retrieved.</param>
-        /// <returns>Part of a text.</returns>
-        [FuncStyleConverter]
-        public static string Substring(object target, object startIndex, object length) { throw new InvalitContextException(nameof(Substring)); }
-
-        /// <summary>
-        /// EXTRACT function.
-        /// </summary>
-        /// <param name="element">Part type.</param>
-        /// <param name="src">The date data.</param>
-        /// <returns>A part from the date data.</returns>
-        [MethodFormatConverter(Format = "EXTRACT(|[0] FROM [1])")]
-        public static double Extract(DateTimeElement element, DateTime src) { throw new InvalitContextException(nameof(Extract)); }
-
-        /// <summary>
-        /// DATEPART function.
-        /// </summary>
-        /// <param name="element">Part type.</param>
-        /// <param name="src">The date data.</param>
-        /// <returns>A part from the date data.</returns>
-        [FuncStyleConverter]
-        public static int DatePart(DateTimeElement element, DateTime src) { throw new InvalitContextException(nameof(Extract)); }
-
-        /// <summary>
-        /// CAST function.
-        /// </summary>
-        /// <typeparam name="TDst">Type of destination.</typeparam>
-        /// <param name="target"></param>
-        /// <param name="destinationType">Type of destination.</param>
-        /// <returns>Converted data.</returns>
-        [MethodFormatConverter(Format = "CAST(|[0] AS [1])")]
-        public static TDst Cast<TDst>(object target, DataTypeElement destinationType) { throw new InvalitContextException(nameof(Cast)); }
-
-        /// <summary>
-        /// COALESCE function.
-        /// </summary>
-        /// <typeparam name="T">Type of parameter</typeparam>
-        /// <param name="parameter">Parameter.</param>
-        /// <returns>The first non-null value in the parameter.</returns>
-        [MethodFormatConverter(Format = "COALESCE(|[<, >0])")]
-        public static T Coalesce<T>(params T[] parameter) { throw new InvalitContextException(nameof(Coalesce)); }
 
         /// <summary>
         /// NVL function.
@@ -259,13 +188,6 @@ namespace LambdicSql.Oracle
         /// <returns>Ranked value.</returns>
         [FuncStyleConverter]
         public static int Dense_Rank() { throw new InvalitContextException(nameof(Dense_Rank)); }
-
-        /// <summary>
-        /// PERCENT_RANK function.
-        /// </summary>
-        /// <returns>Ranked value.</returns>
-        [FuncStyleConverter]
-        public static double Percent_Rank() { throw new InvalitContextException(nameof(Percent_Rank)); }
 
         /// <summary>
         /// CUME_DIST function.

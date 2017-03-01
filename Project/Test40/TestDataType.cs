@@ -28,8 +28,6 @@ namespace Test
         [TestMethod]
         public void Test_CreateTable_Oracle()
         {
-            if (!_connection.IsTarget(TargetDB.Oracle)) return;
-
             CleanUpCreateDropTestTable();
 
             var sql = Db<DBForCreateTest>.Sql(db =>
