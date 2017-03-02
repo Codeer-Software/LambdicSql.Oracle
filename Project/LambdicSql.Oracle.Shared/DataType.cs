@@ -5,7 +5,7 @@ namespace LambdicSql.Oracle
 {
     /// <summary>
     /// Data type.
-    /// It can only be used within lambda of the LambdicSql.
+    /// It can only be used within methods of the LambdicSql.Db class.
     /// </summary>
     public static class DataType
     {
@@ -65,6 +65,31 @@ namespace LambdicSql.Oracle
         /// <returns>DATE</returns>
         [ClauseStyleConverter]
         public static DataTypeElement Date() { throw new InvalitContextException(nameof(Date)); }
+
+        /// <summary>
+        /// DECIMAL
+        /// </summary>
+        /// <returns>DECIMAL</returns>
+        [ClauseStyleConverter]
+        public static DataTypeElement Decimal() { throw new InvalitContextException(nameof(Decimal)); }
+
+        /// <summary>
+        /// DECIMAL
+        /// </summary>
+        /// <param name="precision">precision</param>
+        /// <returns>DECIMAL</returns>
+        [ClauseStyleConverter]
+        public static DataTypeElement Decimal(int precision) { throw new InvalitContextException(nameof(Decimal)); }
+
+
+        /// <summary>
+        /// DECIMAL
+        /// </summary>
+        /// <param name="precision">precision</param>
+        /// <param name="scale">scale</param>
+        /// <returns>DECIMAL</returns>
+        [ClauseStyleConverter]
+        public static DataTypeElement Decimal(int precision, int scale) { throw new InvalitContextException(nameof(Decimal)); }
 
         /// <summary>
         /// INT
@@ -170,6 +195,21 @@ namespace LambdicSql.Oracle
         /// <returns>TIMESTAMP</returns>
         [MethodFormatConverter(Format = "TIMESTAMP([0]) WITH TIME ZONE|")]
         public static DataTypeElement TimeStampWithTimeZone(int n) { throw new InvalitContextException(nameof(TimeStampWithTimeZone)); }
+
+        /// <summary>
+        /// VARCHAR
+        /// </summary>
+        /// <returns>VARCHAR</returns>
+        [ClauseStyleConverter]
+        public static DataTypeElement VarChar() { throw new InvalitContextException(nameof(VarChar)); }
+
+        /// <summary>
+        /// VARCHAR
+        /// </summary>
+        /// <param name="n">n</param>
+        /// <returns>VARCHAR</returns>
+        [FuncStyleConverter]
+        public static DataTypeElement VarChar(int n) { throw new InvalitContextException(nameof(VarChar)); }
 
         /// <summary>
         /// VARCHAR2
