@@ -146,7 +146,7 @@ namespace Sample
 <img src="https://github.com/Codeer-Software/LambdicSql/blob/master/SummaryCode.png"><br>
 ## Samples
 Look for how to use from the tests.<br>
-https://github.com/Codeer-Software/LambdicSql.Oracle/tree/master/Project/Test45<br>
+https://github.com/Codeer-Software/LambdicSql.Oracle/blob/master/SummaryCode.png<br>
 
 ## Sub query.
 ```csharp
