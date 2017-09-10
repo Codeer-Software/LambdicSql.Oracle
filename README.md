@@ -218,7 +218,7 @@ FROM
 		tbl_remuneration.money AS Money
 	FROM tbl_remuneration
 		JOIN tbl_staff ON tbl_remuneration.staff_id = tbl_staff.id
-	WHERE @p_2 < tbl_remuneration.money AND tbl_remuneration.money < @p_3) AS subQuery
+	WHERE :p_2 < tbl_remuneration.money AND tbl_remuneration.money < :p_3) AS subQuery
 ```
 ## Self-joines.
 ```csharp
@@ -318,7 +318,7 @@ SELECT
 	tbl_remuneration.money AS Money
 FROM tbl_remuneration
 	JOIN tbl_staff ON tbl_remuneration.staff_id = tbl_staff.id
-WHERE @min < tbl_remuneration.money AND tbl_remuneration.money < @p_1
+WHERE :min < tbl_remuneration.money AND tbl_remuneration.money < :p_1
 ORDER BY
 	tbl_staff.name ASC
 ```
@@ -355,10 +355,10 @@ public void TestSqlExpression()
 SELECT
 	tbl_staff.name AS Name,
 	tbl_remuneration.payment_date AS PaymentDate,
-	tbl_remuneration.money + @p_0 AS Money
+	tbl_remuneration.money + :p_0 AS Money
 FROM tbl_remuneration
 	JOIN tbl_staff ON (tbl_remuneration.staff_id) = (tbl_staff.id)
-WHERE @p_1 < tbl_remuneration.money AND tbl_remuneration.money < @p_2
+WHERE :p_1 < tbl_remuneration.money AND tbl_remuneration.money < :p_2
 ORDER BY
 	tbl_staff.name ASC
 ```
@@ -383,7 +383,7 @@ min max enable.
 ```sql
 SELECT *
 FROM tbl_remuneration
-WHERE @p_0 < tbl_remuneration.money AND tbl_remuneration.money < @p_1
+WHERE :p_0 < tbl_remuneration.money AND tbl_remuneration.money < :p_1
 ```
 min, max disable, vanish where clause.
 ```sql
@@ -424,7 +424,7 @@ SELECT
 	tbl_remuneration.money + 1000 AS money
 FROM tbl_remuneration
 	JOIN tbl_staff ON (tbl_remuneration.staff_id) = (tbl_staff.id)
-WHERE @p_0 < tbl_remuneration.money AND tbl_remuneration.money < @p_1
+WHERE :p_0 < tbl_remuneration.money AND tbl_remuneration.money < :p_1
 ```
 ## String interpolation.
 Simple FormattableString Version.
@@ -451,8 +451,8 @@ AND ContactTitle = {contactTitle}"
 ```sql
 SELECT *
 FROM Customers
-WHERE City = @p_0
-    AND ContactTitle = @p_1
+WHERE City = :p_0
+    AND ContactTitle = :p_1
 ```
 Expression Version.
 ```csharp
@@ -477,7 +477,7 @@ WHERE {(db.Customers.City == city && db.Customers.ContactTitle == contactTitle)}
 ```sql
 SELECT *
 FROM Customers
-WHERE Customers.City = @city AND Customers.ContactTitle = @contactTitle
+WHERE Customers.City = :city AND Customers.ContactTitle = :contactTitle
 ```
 ## 2 way sql.
 Do you know 2 way sql?
@@ -519,8 +519,8 @@ JOIN tbl_staff ON tbl_staff.id = tbl_remuneration.staff_id
 SELECT
 	tbl_staff.name AS name,
     tbl_remuneration.payment_date AS payment_date,
-	tbl_remuneration.money + @bonus AS money
+	tbl_remuneration.money + :bonus AS money
 FROM tbl_remuneration 
     JOIN tbl_staff ON tbl_staff.id = tbl_remuneration.staff_id
-WHERE ((@p_0) < (tbl_remuneration.money)) AND ((tbl_remuneration.money) < (@p_1))
+WHERE :p_0 < tbl_remuneration.money AND tbl_remuneration.money < :p_1
 ```
