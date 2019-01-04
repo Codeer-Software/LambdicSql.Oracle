@@ -289,5 +289,21 @@ namespace LambdicSql.Oracle
         /// <returns></returns>
         [MethodFormatConverter(Format = "OVER(|[< >0])", FormatDirection = FormatDirection.Vertical)]
         public static OverReturnValue Over(params OverElement[] args) { throw new InvalitContextException(nameof(Over)); }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        [FuncStyleConverter]
+        public static int Length(string text) => throw new NotSupportedException();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        [FuncStyleConverter]
+        public static int LengthB(string text) => throw new NotSupportedException();
     }
 }
